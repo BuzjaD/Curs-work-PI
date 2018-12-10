@@ -1,0 +1,97 @@
+﻿@model photosharing.ViewModels.UserPhotosModel;
+@{
+    ViewData["Title"] = "UserPhotos";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    await Html.RenderPartialAsync("CurrentUser", ViewData["currentUserProf"]);
+}
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+
+
+@if (User.Identity.Name == Model.user.id)
+{
+    <div class="user_profile_wrapper">
+        <div class="user_profile_img" style="background: url(@Url.Content(Model.user.avatar)); background-size: cover;
+background-position: center center;">
+        </div>
+        <div class="user_profile_info">
+            <div class="user_profile_username">
+                @Model.user.username
+            </div>
+            <div class="user_profile_follow_text">
+                You can change your profile information
+            </div>
+            <a asp-controller="ProfileSettings" asp-action="ProfileSettings" class="user_profile_follow_btn">Settings</a>
+        </div>
+
+    </div>
+    <div class="user_publication_title">
+        Your publications
+    </div>
+}
+else
+{
+    <div class="user_profile_wrapper">
+        <div class="user_profile_img" style="background: url(@Url.Content(Model.user.avatar)); background-size: cover;
+background-position: center center;">
+        </div>
+        <div class="user_profile_info">
+            <div class="user_profile_username">
+                @Model.user.username
+            </div>
+            @if (@Model.isSubscribe == false)
+            {
+                <div class="user_profile_follow_text">
+                    Do you want to follow this user?
+                </div>
+                <form action="/UserPhotos/Follow" method="post">
+                    <input type="hidden" value="@Model.user.id" name="userId">
+                    <input class="user_profile_follow_btn" type="submit" value="Follow">
+                </form>
+            }
+            else
+            {
+                <div class="user_profile_follow_text">
+                    You can unfollow this user
+                </div>
+                <form action="/UserPhotos/Unfollow" method="post">
+                    <input type="hidden" value="@Model.user.id" name="userId">
+                    <input class="user_profile_follow_btn" type="submit" value="Unfollow">
+                </form>
+            }
+        </div>
+
+    </div>
+    <div class="user_publication_title">
+        User publications
+    </div>
+}
+<div class="gallery">
+    @foreach (var item in Model.userPhotos)
+    {
+        await Html.RenderPartialAsync("../Home/_PhotoComponent", item);
+    }
+</div>
+
+@section scripts
+    {
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $(".photoItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}
+

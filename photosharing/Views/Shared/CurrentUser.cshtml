@@ -1,0 +1,10 @@
+﻿@model photosharing.Models.User;
+
+<div class="ps_profile_wrapper">
+        <div class="ps_profile_name">
+            @Model.username
+            </div>
+        <a href="/UserPhotos?id=@Model.id" style="background: url(@Url.Content(Model.avatar)); background-size: cover;
+background-position: center center;"  class="ps_profile_img">
+        </a>
+</div>

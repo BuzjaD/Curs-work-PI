@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photosharing</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link href="~/css/index.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <div class="ps_navbar_wrapper">
+        <div class="ps_navbar">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="ps_navbar_brand">Photosharing.</a>
+                <div class="ps_navbar_list">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Home" asp-action="AllPublications" class="ps_navbar_item"><div class="navbar_item_icon"><img src="~/images/world.svg" /></div><div class="navbar_item_text">Global photos</div></a>
+                        <a asp-controller="Photo" asp-action="AddPhoto" class="ps_navbar_item"><div class="navbar_item_icon"><img src="~/images/photo.svg" /></div><div class="navbar_item_text">New photo</div></a>
+                        <a asp-controller="ProfileSettings" asp-action="ProfileSettings" class="ps_navbar_item"><div class="navbar_item_icon"><img src="~/images/user(1).svg" /></div><div class="navbar_item_text">Settings</div></a>
+                        <a asp-controller="Account" asp-action="Logout" class="ps_navbar_item"><div class="navbar_item_icon"><img src="~/images/logout.svg" /></div><div class="navbar_item_text">Logout</div></a>
+                    }
+                    else
+                    {
+                        <a asp-action="Login" asp-controller="Account" class="ps_navbar_item">Sign in</a>
+                        <a asp-action="Registration" asp-controller="Account" class="ps_navbar_item">Sign up</a>
+                    }
+                </div>
+
+        </div>
+    </div>
+
+    <partial name="_CookieConsentPartial" />
+
+    <div class="ps_main_container">
+        <div class="ps_container">
+            @RenderBody()
+                </div>
+            @*<footer>
+            <p>&copy; 2018 - photosharing</p>
+        </footer>*@
+        </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/jquery-unobtrusive-ajax/jquery.unobtrusive-ajax.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

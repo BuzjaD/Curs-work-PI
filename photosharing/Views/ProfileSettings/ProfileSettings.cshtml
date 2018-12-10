@@ -1,0 +1,30 @@
+﻿@model photosharing.Models.User
+    <div class="form_container">
+        <form asp-controller="ProfileSettings" asp-action="ChangeData" enctype="multipart/form-data" method="post" class="ps_form_container">
+            <div class="ps_form_input_wrapper">
+                <div class="ps_form_title">Profile settings</div>
+            </div>
+            <div class="ps_form_input_wrapper">
+                <div class="ps_form_label">Username</div>
+                <input type="text" value="@Model.username" name="username"  class="ps_form_input">
+            </div>
+            <div class="ps_form_input_wrapper">
+                <div class="ps_form_label">Email</div>
+                <input type="text" value="@Model.email" name="email"  class="ps_form_input">
+            </div>
+            <div class="ps_form_input_wrapper">
+                <div class="ps_form_label">New password</div> 
+                <input type="password" value="@Model.password" name="password" class="ps_form_input">
+            </div>
+            <div class="ps_form_input_wrapper">
+                <div class="ps_form_label">Avatar</div>
+                <div class="ps_form_input_wrapper_profile">
+                    <input type="file" name="avatar" class="">
+                    <div class="ps_form_profile_img"  style="background: url(@Url.Content(Model.avatar)); background-size: cover;
+background-position: center center;"></div>
+                </div>
+            </div>
+                <input type="submit" class="ps_form_button" value="Save changes">
+</form>
+
+    </div>

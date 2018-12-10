@@ -1,0 +1,13 @@
+﻿@model photosharing.ViewModels.PhotoModel
+@{
+    string commentId = "comment" + Model.Photo.id.ToString();
+}
+<div class="comment_section" id="@commentId">
+    @foreach (var comm in Model.Comments)
+    {
+        <div class="ps_modal_comment">
+            <a href="/UserPhotos?id=@comm.Key.user_id"  class="ps_modal_comment_user">@comm.Value.username</a>
+            <div class="ps_modal_comment_text">@comm.Key.Text</div>
+        </div>
+    }
+</div>

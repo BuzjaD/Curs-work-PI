@@ -1,0 +1,58 @@
+﻿@model photosharing.ViewModels.PhotoModel
+
+@{
+    string commentId = "comment" + Model.Photo.id.ToString();
+}
+
+<div class="ps_modal_container">
+    <div class="ps_modal_photo">
+        <img src="@Url.Content(Model.Photo.url)" />
+    </div>
+    <div class="ps_modal_info_wrapper">
+        <div class="ps_modal_up_zone">
+            <div class="ps_modal_header">
+                <div class="ps_modal_header_wrapper">
+                <a href="/UserPhotos?id=@Model.User.id" class="ps_modal_header_img" style="background: url(@Url.Content(Model.User.avatar)); background-size: cover;
+background-position: center center;" />
+                <div class="ps_modal_header_username">
+                    @Model.User.username
+                </div>
+                </div>
+                @if (User.Identity.Name == Model.Photo.user_id)
+                {
+                    <a class="delete_btn" href='@Url.Action("DeletePhoto", "Photo",new {photoId =  Model.Photo.id})'>
+                        <img class="delete_icon" src="~/images/delete.svg"/>
+                    </a>
+                }
+            </div>
+            <div class="ps_modal_comments_sec">
+                <div class="ps_modal_description">
+                    <b>description:</b> @Model.Photo.description
+                </div>
+                @{await Html.RenderPartialAsync("../Photo/_Comments", Model);}
+            </div>
+        </div>
+        <div class="ps_modal_bottom_zone">
+            <div class="ps_modal_action_sec">
+                <div class="ps_modal_like_wrapper">
+                    <form id="like_form" action="/Photo/ToggleLike" data-ajax="true" data-ajax-mode="replace-with" data-ajax-update="#@Model.Photo.id" data-ajax-method="post">
+                        <input type="hidden" name="photoId" value=@Model.Photo.id>
+                    </form>
+                    <div class="ps_modal_likes_info">
+                        @{await Html.RenderPartialAsync("../Photo/ToggleLike", new photosharing.ViewModels.LikeModel { Photo = Model.Photo, isLiked = Model.isLiked }); }
+                    </div>
+                </div>
+                <div class="ps_modal_creation">
+                    @Model.Photo.creation_date
+                </div>
+            </div>
+
+            <form class="ps_modal_add_comment" action="/Photo/addComment" data-ajax="true" data-ajax-mode="replace-with" data-ajax-update="#@commentId" data-ajax-method="post">
+                <input type="text" name="comment" class="ps_modal_add_comment_input" placeholder="Add comment">
+                <input type="image" src="~/images/plus.svg" class="add_comment_btn">
+                <input type="hidden" name="photoId" value=@Model.Photo.id>
+            </form>
+
+        </div>
+    </div>
+</div>

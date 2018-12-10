@@ -1,0 +1,19 @@
+﻿@model photosharing.ViewModels.LikeModel
+@{
+<div id="@Model.Photo.id" class="likes_section">
+    @if (Model.isLiked)
+    {
+        <input type="image" class="heart_icon_submit" src="~/images/fill_black_like.svg" form="like_form">
+    }
+    else
+    {
+        <input type="image" class="heart_icon_submit" src="~/images/heart-black.svg" form="like_form">
+    }
+    <div class="likes_wrapper">
+        <div class="likes_txt">Likes:</div>
+        <div class="likes_counter">
+            @Model.Photo.likes
+        </div>
+    </div>
+</div>
+}

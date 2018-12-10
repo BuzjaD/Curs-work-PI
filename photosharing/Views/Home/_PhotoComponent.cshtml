@@ -1,0 +1,29 @@
+﻿@model photosharing.ViewModels.PhotoModel
+
+@{
+    string commentId = "comment" + Model.Photo.id.ToString();
+<div class="gallery-item" style="background-image:url(@Url.Content(Model.Photo.url))">
+    <div class="active_photo_zone">
+        <div class="active_user_photo">
+            <div class="user_photo_info">
+                <div class="user_username">
+                    @Model.User.username
+                </div>
+                <div class="photo_creation_date">
+                    @Model.Photo.creation_date
+                </div>
+            </div>
+            <a href="/UserPhotos?id=@Model.User.id" class="user_photo_img" style="background: url(@Url.Content(Model.User.avatar)); background-size: cover;
+background-position: center center;">
+            </a>
+        </div>
+        <div class="action_group_section">
+            <a href='@Url.Action("Details", "Home", new { id =  Model.Photo.id })' class="photoItem zoom_icon_wrapper">
+                <img class="zoom_icon" src="~/images/zoom.svg" alt="Zoom" />
+            </a>
+        </div>
+    </div>
+</div>
+}
+
+

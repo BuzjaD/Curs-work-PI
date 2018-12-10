@@ -1,0 +1,15 @@
+﻿<div class="form_container">
+    <form method="post" enctype="multipart/form-data" asp-controller="Photo" asp-action="CreatePhoto" class="ps_form_container">
+        <div class="ps_form_input_wrapper">
+            <div class="ps_form_title">Upload new photo</div>
+            <div class="ps_form_label">Description</div>
+            @*<input type="text" name="description" class="ps_form_input"/>*@
+            <textarea name="description" class="ps_form_input_description"></textarea>
+        </div>
+        <div class="upload_wrapper">
+            <input type="file" name="files" multiple />
+        </div>
+        
+        <input type="submit" value="Upload" class="ps_form_button">
+    </form>
+</div>

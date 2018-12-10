@@ -1,0 +1,50 @@
+﻿
+@model IEnumerable<photosharing.ViewModels.PhotoModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        await Html.RenderPartialAsync("CurrentUser", ViewData["currentUser"]);
+    }
+<div class="gallery">
+    @if(Model.Count() <= 0){
+        <div>
+            No following users
+        </div>
+    }
+    @foreach (var item in Model)
+    {
+    await Html.RenderPartialAsync("_PhotoComponent", item);
+    }
+</div>
+
+@section scripts
+    {
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: true });
+            $(".photoItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+            $(".close").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#modDialog').modal('hide');
+                });
+            });
+        })
+    </script>
+}
