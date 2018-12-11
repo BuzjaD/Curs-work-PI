@@ -144,7 +144,7 @@ WriteAttributeValue("", 914, Url.Action("DeletePhoto", "Photo",new {photoId =  M
             WriteLiteral(">\r\n                        ");
             EndContext();
             BeginContext(1009, 52, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a3dfde47b124668bc4e5b70b9d5163e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e2c2fef804db475fb786ab503b876998", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -189,7 +189,7 @@ WriteAttributeValue("", 914, Url.Action("DeletePhoto", "Photo",new {photoId =  M
             WriteLiteral("            </div>\r\n        </div>\r\n        <div class=\"ps_modal_bottom_zone\">\r\n            <div class=\"ps_modal_action_sec\">\r\n                <div class=\"ps_modal_like_wrapper\">\r\n                    ");
             EndContext();
             BeginContext(1599, 268, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d992914a76ab49d1b4a69b69cdfda537", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3c04ba2ed3349dd8db4b7c4502de9da", async() => {
                 BeginContext(1754, 61, true);
                 WriteLiteral("\r\n                        <input type=\"hidden\" name=\"photoId\"");
                 EndContext();
@@ -253,12 +253,12 @@ WriteAttributeValue("", 1822, Model.Photo.id, 1822, 15, false);
             WriteLiteral("\r\n                </div>\r\n            </div>\r\n\r\n            ");
             EndContext();
             BeginContext(2302, 460, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43b1c924f96a41e58db431ff56429f03", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "352f465aaf0642519b4c173935ca7cf8", async() => {
                 BeginContext(2466, 131, true);
                 WriteLiteral("\r\n                <input type=\"text\" name=\"comment\" class=\"ps_modal_add_comment_input\" placeholder=\"Add comment\">\r\n                ");
                 EndContext();
                 BeginContext(2597, 68, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "39d076818e4a477ea1a4bcb4f282f5e2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "9bfea01509c346218ff998241775e181", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

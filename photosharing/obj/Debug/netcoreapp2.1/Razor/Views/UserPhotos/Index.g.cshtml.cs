@@ -115,7 +115,7 @@ WriteAttributeValue("", 477, Url.Content(Model.user.avatar), 477, 31, false);
             WriteLiteral("\r\n            </div>\r\n            <div class=\"user_profile_follow_text\">\r\n                You can change your profile information\r\n            </div>\r\n            ");
             EndContext();
             BeginContext(880, 109, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ab90737dbcdf40a1985d33346d7f98ea", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f2f0cf747b6147aeb66a19bac061fec9", async() => {
                 BeginContext(977, 8, true);
                 WriteLiteral("Settings");
                 EndContext();
@@ -187,7 +187,7 @@ WriteAttributeValue("", 1215, Url.Content(Model.user.avatar), 1215, 31, false);
             WriteLiteral("                <div class=\"user_profile_follow_text\">\r\n                    Do you want to follow this user?\r\n                </div>\r\n                ");
             EndContext();
             BeginContext(1689, 243, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f0e41f51f1f4fdf9db3ea2268a83947", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "09e1f1a231eb47c884f6c2e184532dc6", async() => {
                 BeginContext(1737, 42, true);
                 WriteLiteral("\r\n                    <input type=\"hidden\"");
                 EndContext();
@@ -232,7 +232,7 @@ WriteAttributeValue("", 1787, Model.user.id, 1787, 14, false);
             WriteLiteral("                <div class=\"user_profile_follow_text\">\r\n                    You can unfollow this user\r\n                </div>\r\n                ");
             EndContext();
             BeginContext(2126, 247, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "96c36755f34a438a80b8e85f2e0c1b7a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3b093958863242aa9f24b4ed9e355ec6", async() => {
                 BeginContext(2176, 42, true);
                 WriteLiteral("\r\n                    <input type=\"hidden\"");
                 EndContext();

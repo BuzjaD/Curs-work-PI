@@ -13,5 +13,8 @@ namespace photosharing.Models
         public string password { get; set; }
         public string avatar { get; set; }
 
+        public ICollection<Like> Likes { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+        public ICollection<Photo> Photos { get; set; }
     }
 }

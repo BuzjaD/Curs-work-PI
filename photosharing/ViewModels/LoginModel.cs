@@ -4,6 +4,7 @@ namespace photosharing.ViewModels
 {
     public class LoginModel
     {
+        [EmailAddress(ErrorMessage = "Uncorrect email")]
         [Required(ErrorMessage = "Email required")]
         public string Email { get; set; }
 

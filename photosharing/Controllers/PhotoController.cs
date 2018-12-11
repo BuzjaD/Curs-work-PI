@@ -69,9 +69,9 @@ namespace photosharing.Controllers
                         {
                             newPhoto.description = "No description";
                         }
-                        db.Photos.Add(new Photo { id = myUniqueFileName, user_id = user.id, username = user.username, user_avatar = user.avatar, url = PathDB, creation_date = now, description = newPhoto.description,likes = 0 });
+                        db.Photos.Add(new Photo { id = myUniqueFileName, user_id = user.id, url = PathDB, creation_date = now, description = newPhoto.description,likes = 0 });
                         await db.SaveChangesAsync();
-                        return RedirectToAction("Index","Home");
+                        return RedirectToAction("Index", "UserPhotos", new { id = User.Identity.Name });
                     }
                 }
             }
@@ -84,6 +84,24 @@ namespace photosharing.Controllers
             var user = db.Users
                    .Where(c => c.id == User.Identity.Name)
                    .FirstOrDefault();
+            var removingLikes = db.Likes.Where(l => l.photo_id == photoId);
+            var removingComments = db.Comments.Where(c => c.photo_id == photoId);
+            if (removingLikes != null)
+            {
+                foreach (var like in removingLikes)
+                {
+                    db.Likes.Remove(like);
+                }
+            }
+
+            if (removingComments != null)
+            {
+                foreach (var comm in removingComments)
+                {
+                    db.Comments.Remove(comm);
+                }
+            }
+
             var photoToDelete = db.Photos.Where(p => p.id == photoId && p.user_id == user.id).FirstOrDefault();
             string[] parts = photoToDelete.url.Split('/');
 
