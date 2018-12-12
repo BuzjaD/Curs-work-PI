@@ -656,8 +656,8 @@
     }
 
     .modal-open .modal {
-        justify-content: unset;
-        align-items: unset;
+        justify-content: center;
+        align-items: center;
     }
 
     .ps_navbar_list {
